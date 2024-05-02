@@ -2,6 +2,8 @@ FROM python:alpine3.17
 
 WORKDIR /app
 
+ENV MONGO_URI="mongodb+srv://mohmed123:mohmed123@cluster0.yi9werh.mongodb.net/gain?retryWrites=true&w=majority&appName=Cluster0"
+
 COPY requirements.txt ./
 
 RUN pip install -r requirements.txt
