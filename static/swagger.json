@@ -129,6 +129,44 @@
           }
         }
       }
+    },
+    "/auth/login": {
+      "post": {
+        "tags": ["user"],
+        "summary": "Login user",
+        "description": "Login user",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "default": "m@gmail.com"
+                  },
+                  "password": {
+                    "type": "string",
+                    "default": "12345678"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {}
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          }
+        }
+      }
     }
   }
 }
