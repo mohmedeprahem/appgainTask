@@ -1,7 +1,6 @@
 from flask import Flask, request
 from flask_pymongo import PyMongo
 from flask_swagger_ui import get_swaggerui_blueprint
-from flask_bcrypt import Bcrypt
 
 import os
 
@@ -9,7 +8,7 @@ app = Flask(__name__)
 app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
 mongo = PyMongo(app)
 
-bcrypt = Bcrypt(app)
+app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY')
 
 SWAGGER_URL = '/api/docs'
 API_URL = '/static/swagger.json'
