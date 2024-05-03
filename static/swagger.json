@@ -88,6 +88,47 @@
           }
         }
       }
+    },
+    "/auth/register": {
+      "post": {
+        "tags": ["user"],
+        "summary": "Create a new user",
+        "description": "Create a new user",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string",
+                    "default": "m@gmail.com"
+                  },
+                  "password": {
+                    "type": "string",
+                    "default": "12345678"
+                  }
+                }
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {}
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          }
+        }
+      }
     }
   }
 }
