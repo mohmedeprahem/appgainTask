@@ -71,6 +71,22 @@
             "description": "Invalid ID supplied"
           }
         }
+      },
+      "get": {
+        "tags": ["item"],
+        "summary": "Get all items",
+        "description": "Returns all items",
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {}
+            }
+          },
+          "404": {
+            "description": "Not found"
+          }
+        }
       }
     }
   }
