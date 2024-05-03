@@ -16,9 +16,21 @@ def register():
     RegisterSchema().load(data)
     UserExists = db.find_one({'email': data['email']})
     if UserExists:
-      return 'User already exists', 409
+      return jsonify({
+            'success': False,
+            'statusCode': 209,
+            'message': 'User already exists'
+        }), 409
     data['password'] = bcrypt.generate_password_hash('password').decode('utf-8')
     db.insert_one(data)
-    return 'User added successfully' , 201
+    return jsonify({
+            'success': True,
+            'statusCode': 201,
+            'message': 'User already exists'
+        }), 201
   except ValidationError as error:
-    return error.messages, 400
+    return jsonify({
+            'success': False,
+            'statusCode': 400,
+            'message': error.messages,
+        }), 400
