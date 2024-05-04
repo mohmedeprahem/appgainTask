@@ -40,172 +40,174 @@
       }
     }
   },
-  "/items": {
-    "post": {
-      "tags": ["user"],
-      "summary": "Create a new user",
-      "description": "Create a new user",
-      "requestBody": {
-        "required": true,
-        "content": {
-          "application/json": {
-            "schema": {
-              "type": "object",
-              "properties": {
-                "username": {
-                  "type": "string"
-                },
-                "email": {
-                  "type": "string",
-                  "default": "m@gmail.com"
-                },
-                "password": {
-                  "type": "string",
-                  "default": "12345678"
-                }
-              },
-              "required": ["username", "password"]
-            }
-          }
-        }
-      },
-      "responses": {
-        "200": {
-          "description": "Successful operation",
+  "paths": {
+    "/items": {
+      "post": {
+        "tags": ["user"],
+        "summary": "Create a new user",
+        "description": "Create a new user",
+        "requestBody": {
+          "required": true,
           "content": {
-            "application/json": {}
-          }
-        },
-        "400": {
-          "description": "Invalid ID supplied"
-        }
-      }
-    }
-  },
-  "/auth/register": {
-    "post": {
-      "tags": ["user"],
-      "summary": "Create a new user",
-      "description": "Create a new user",
-      "requestBody": {
-        "required": true,
-        "content": {
-          "application/json": {
-            "schema": {
-              "type": "object",
-              "properties": {
-                "username": {
-                  "type": "string"
-                },
-                "email": {
-                  "type": "string",
-                  "default": "m@gmail.com"
-                },
-                "password": {
-                  "type": "string",
-                  "default": "12345678"
-                }
-              },
-              "required": ["username", "password"]
-            }
-          }
-        }
-      },
-      "responses": {
-        "200": {
-          "description": "Successful operation",
-          "content": {
-            "application/json": {}
-          }
-        },
-        "400": {
-          "description": "Invalid ID supplied"
-        }
-      }
-    }
-  },
-  "/auth/login": {
-    "post": {
-      "tags": ["user"],
-      "summary": "Login user",
-      "description": "Login user",
-      "requestBody": {
-        "required": true,
-        "content": {
-          "application/json": {
-            "schema": {
-              "type": "object",
-              "properties": {
-                "email": {
-                  "type": "string",
-                  "default": "m@gmail.com"
-                },
-                "password": {
-                  "type": "string",
-                  "default": "12345678"
-                }
-              },
-              "required": ["email", "password"]
-            }
-          }
-        }
-      },
-      "responses": {
-        "200": {
-          "description": "Successful operation",
-          "content": {
-            "application/json": {}
-          }
-        },
-        "400": {
-          "description": "Invalid ID supplied"
-        }
-      }
-    }
-  },
-  "/orders": {
-    "post": {
-      "security": [
-        {
-          "bearerAuth": []
-        }
-      ],
-      "tags": ["order"],
-      "summary": "Create a new order",
-      "description": "Create a new order",
-      "requestBody": {
-        "required": true,
-        "content": {
-          "application/json": {
-            "schema": {
-              "type": "array",
-              "items": {
+            "application/json": {
+              "schema": {
                 "type": "object",
                 "properties": {
-                  "id": {
-                    "type": "string",
-                    "default": "66342f884bbc8b6ce33e53fb"
+                  "username": {
+                    "type": "string"
                   },
-                  "count": {
-                    "type": "integer",
-                    "format": "int32"
+                  "email": {
+                    "type": "string",
+                    "default": "m@gmail.com"
+                  },
+                  "password": {
+                    "type": "string",
+                    "default": "12345678"
                   }
                 },
-                "required": ["id", "count"]
+                "required": ["username", "password"]
               }
             }
           }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {}
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          }
         }
-      },
-      "responses": {
-        "200": {
-          "description": "Successful operation",
+      }
+    },
+    "/auth/register": {
+      "post": {
+        "tags": ["user"],
+        "summary": "Create a new user",
+        "description": "Create a new user",
+        "requestBody": {
+          "required": true,
           "content": {
-            "application/json": {}
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "username": {
+                    "type": "string"
+                  },
+                  "email": {
+                    "type": "string",
+                    "default": "m@gmail.com"
+                  },
+                  "password": {
+                    "type": "string",
+                    "default": "12345678"
+                  }
+                },
+                "required": ["username", "password"]
+              }
+            }
           }
         },
-        "400": {
-          "description": "Invalid ID supplied"
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {}
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          }
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "tags": ["user"],
+        "summary": "Login user",
+        "description": "Login user",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "default": "m@gmail.com"
+                  },
+                  "password": {
+                    "type": "string",
+                    "default": "12345678"
+                  }
+                },
+                "required": ["email", "password"]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {}
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          }
+        }
+      }
+    },
+    "/orders": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": ["order"],
+        "summary": "Create a new order",
+        "description": "Create a new order",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "default": "66342f884bbc8b6ce33e53fb"
+                    },
+                    "count": {
+                      "type": "integer",
+                      "format": "int32"
+                    }
+                  },
+                  "required": ["id", "count"]
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {}
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          }
         }
       }
     }
