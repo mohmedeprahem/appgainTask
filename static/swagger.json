@@ -23,7 +23,7 @@
       "description": "Operations about item"
     },
     {
-      "name": "cart",
+      "name": "order",
       "description": "Access to cart orders"
     },
     {
@@ -31,6 +31,15 @@
       "description": "Operations about user"
     }
   ],
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    }
+  },
   "paths": {
     "/items": {
       "post": {
@@ -154,6 +163,53 @@
             }
           },
           "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "Successful operation",
+            "content": {
+              "application/json": {}
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied"
+          }
+        }
+      }
+    },
+    "/orders": {
+      "post": {
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ],
+        "tags": ["order"],
+        "summary": "Create a new order",
+        "description": "Create a new order",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "default": "66342f884bbc8b6ce33e53fb"
+                    },
+                    "count": {
+                      "type": "integer",
+                      "format": "int32"
+                    }
+                  },
+                  "required": ["id", "count"]
+                }
+              }
+            }
+          }
         },
         "responses": {
           "200": {
