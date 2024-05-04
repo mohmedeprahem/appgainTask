@@ -1,8 +1,9 @@
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify, render_template
 from app import mongo
 from datetime import datetime
 from bson import ObjectId
 from decorators.auth_decorator import token_required
+from utils.email_utils import send_email
 
 order_bp = Blueprint('order', __name__)
 
@@ -11,7 +12,7 @@ db = mongo.db
 @order_bp.route('/', methods=['POST'])
 @token_required
 def add_order(current_user):
-  print(current_user)
+
   # start transaction
   with mongo.cx.start_session() as session:
     with session.start_transaction():
@@ -63,9 +64,18 @@ def add_order(current_user):
         db.orders.insert_one(order, session=session)
 
         session.commit_transaction()
-        return 'Order added successfully', 201
       except Exception as e:
-        print(e)
-
         session.abort_transaction()
+        return 'Internal server error', 500
+
+      try:
+        order['_id'] = str(order['_id'])
+        html_content = render_template('order_confirmation_email.html', order=order)
+        is_sent = send_email('Order Confirmed', [current_user['email']], html_content)
+
+        if not is_sent:
+          return 'order Confirmed successfully but email not sent', 201
+
+        return 'Order added successfully, Check your email', 201
+      except Exception as e:
         return 'Internal server error', 500
