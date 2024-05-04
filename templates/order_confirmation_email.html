@@ -1,0 +1,26 @@
+<head>
+  <title>FlaskTest</title>
+</head>
+<body>
+  <h1>Order Confirmation</h1>
+  <p>Dear Customer,</p>
+
+  <p>
+    We are pleased to inform you that your order has been successfully
+    confirmed. Below are the details of your order:
+  </p>
+
+  <p><strong>Order ID:</strong> {{ order._id }}</p>
+  <p><strong>Items:</strong></p>
+  <ul>
+    {% for item in order['items'] %}
+    <li>
+      name: {{ item.name }} - price: {{ item.price }} - count: {{ item.count }}
+    </li>
+    {% endfor %}
+  </ul>
+
+  <p><strong>Total Amount:</strong> {{ order.total_price }}</p>
+
+  <p>Thank you for shopping with us!</p>
+</body>
