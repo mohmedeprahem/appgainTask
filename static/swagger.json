@@ -45,8 +45,9 @@
       "post": {
         "tags": ["item"],
         "summary": "Create a new item",
-        "description": "add new item to the store",
+        "description": "Add a new item to the store",
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -63,11 +64,11 @@
                     "type": "number",
                     "minimum": 0.01
                   }
-                }
+                },
+                "required": ["name", "count", "price"]
               }
             }
-          },
-          "required": true
+          }
         },
         "responses": {
           "200": {
@@ -104,6 +105,7 @@
         "summary": "Create a new user",
         "description": "Create a new user",
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -120,11 +122,11 @@
                     "type": "string",
                     "default": "12345678"
                   }
-                }
+                },
+                "required": ["username", "password"]
               }
             }
-          },
-          "required": true
+          }
         },
         "responses": {
           "200": {
@@ -145,6 +147,7 @@
         "summary": "Login user",
         "description": "Login user",
         "requestBody": {
+          "required": true,
           "content": {
             "application/json": {
               "schema": {
@@ -158,11 +161,11 @@
                     "type": "string",
                     "default": "12345678"
                   }
-                }
+                },
+                "required": ["email", "password"]
               }
             }
-          },
-          "required": true
+          }
         },
         "responses": {
           "200": {
