@@ -80,9 +80,7 @@
             "description": "Invalid ID supplied"
           }
         }
-      }
-    },
-    "/items": {
+      },
       "get": {
         "tags": ["item"],
         "summary": "Get all items",

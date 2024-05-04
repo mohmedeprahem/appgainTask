@@ -44,6 +44,6 @@ from routes.item_routes import item_bp
 from routes.auth_routes import auth_bp
 from routes.order_routes import order_bp
 
-app.register_blueprint(item_bp, url_prefix='/items')
+app.register_blueprint(item_bp, url_prefix='/')
 app.register_blueprint(auth_bp, url_prefix='/auth')
 app.register_blueprint(order_bp, url_prefix='/orders')
