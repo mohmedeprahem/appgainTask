@@ -8,7 +8,12 @@ import os
 app = Flask(__name__)
 
 # init database
-app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
+if os.environ.get("ENV") == "test":
+    app.config["MONGO_URI"] = os.environ.get("TESTING_MONGO_URI")
+else:
+    app.config["MONGO_URI"] = os.environ.get("MONGO_URI")
+print(app.config["MONGO_URI"])
+
 mongo = PyMongo(app)
 
 # init jwt
