@@ -7,14 +7,32 @@ The system should handle order processing, including stock validation, payment p
 **Technologies**: Python, Flask, Mongodb, Docker and render.
 
 ## Features
-Stock Management: Implement functionality to validate the availability of products in the store's inventory when
-placing an order. Ensure that the system updates the stock count accordingly after each successful order.
-2. Payment Processing: Integrate with a mock payment gateway to simulate payment processing. Upon successful payment, mark the order as paid and proceed with order fulfillment.
-3. Order Confirmation Emails: Develop a feature to send order confirmation emails to customers after a successful purchase. The email should include details such as the order ID, purchased items, and total amount.
-4. Error Handling: Implement error handling to gracefully manage any issues that may occur during the order processing flow, such as stock unavailability or payment failures.
-5. Documentation: Provide clear and concise documentation on how to set up and run the Order Processing System on (swagger)
-6. Containerization: Dockerize the Order Processing System by creating a Dockerfile to package the application into a container. Ensure that the Dockerfile is included in the repository.
-7. Repository Integration: Push the built Docker image to a container registry/repository on Docker Hub
+1. **Stock Management:**
+   - Implement functionality to validate the availability of products in the store's inventory when placing an order.
+   - Ensure that the system updates the stock count accordingly after each successful order.
+
+2. **Payment Processing:**
+   - Integrate with a mock payment gateway to simulate payment processing.
+   - Upon successful payment, mark the order as paid and proceed with order fulfillment.
+
+3. **Order Confirmation Emails:**
+   - Develop a feature to send order confirmation emails to customers after a successful purchase.
+   - The email should include details such as the order ID, purchased items, and total amount.
+
+4. **Error Handling:**
+   - Implement error handling to gracefully manage any issues that may occur during the order processing flow, such as stock unavailability or payment failures.
+
+5. **Documentation:**
+   - Provide clear and concise documentation on how to set up and run the Order Processing System.
+   - Utilize Swagger for documenting APIs.
+
+6. **Containerization:**
+   - Dockerize the Order Processing System by creating a Dockerfile to package the application into a container.
+   - Ensure that the Dockerfile is included in the repository.
+
+7. **Repository Integration:**
+   - Push the built Docker image to a container registry/repository on Docker Hub.
+
 Docker Hub).
 
 ## Documentation
