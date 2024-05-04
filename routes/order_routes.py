@@ -9,7 +9,7 @@ order_bp = Blueprint('order', __name__)
 
 db = mongo.db
 
-@order_bp.route('/', methods=['POST'])
+@order_bp.route('/add', methods=['POST'])
 @token_required
 def add_order(current_user):
 
