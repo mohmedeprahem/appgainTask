@@ -41,7 +41,7 @@
     }
   },
   "paths": {
-    "/items": {
+    "/items/add": {
       "post": {
         "tags": ["item"],
         "summary": "Create a new item",
@@ -80,7 +80,9 @@
             "description": "Invalid ID supplied"
           }
         }
-      },
+      }
+    },
+    "/items/get": {
       "get": {
         "tags": ["item"],
         "summary": "Get all items",
