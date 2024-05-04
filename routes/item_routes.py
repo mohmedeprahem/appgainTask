@@ -7,7 +7,7 @@ item_bp = Blueprint('item', __name__)
 
 db = mongo.db.items
 
-@item_bp.route('/add', methods=['POST'])
+@item_bp.route('/items', methods=['POST'])
 def add_items():
     try:
         data = request.get_json()
@@ -17,7 +17,7 @@ def add_items():
     except ValidationError as error:
         return error.messages, 400
 
-@item_bp.route('/get', methods=['GET'])
+@item_bp.route('/items', methods=['GET'])
 def get_items():
     items = [item for item in db.find()]
 

@@ -41,7 +41,7 @@
     }
   },
   "paths": {
-    "/items/add": {
+    "/items": {
       "post": {
         "tags": ["item"],
         "summary": "Create a new item",
@@ -82,7 +82,7 @@
         }
       }
     },
-    "/items/get": {
+    "/items": {
       "get": {
         "tags": ["item"],
         "summary": "Get all items",
